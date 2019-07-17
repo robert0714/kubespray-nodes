@@ -141,35 +141,30 @@ all:
 use 2.8.5
 ```bash
 [all]
-node1    ansible_host=10.100.198.201 ip=10.100.198.201
-node2    ansible_host=10.100.198.202 ip=10.100.198.202
-node3    ansible_host=10.100.198.203 ip=10.100.198.203
-node4    ansible_host=10.100.198.211 ip=10.100.198.211
-node5    ansible_host=10.100.198.212 ip=10.100.198.212
-node6    ansible_host=10.100.198.213 ip=10.100.198.213
-node7    ansible_host=10.100.198.221 ip=10.100.198.221
-node8    ansible_host=10.100.198.222 ip=10.100.198.222
-node9    ansible_host=10.100.198.223 ip=10.100.198.223
+k8s-m1    ansible_host=10.100.198.201 ip=10.100.198.201
+k8s-m2   ansible_host=10.100.198.202 ip=10.100.198.202
+k8s-m3   ansible_host=10.100.198.203 ip=10.100.198.203
+k8s-e1   ansible_host=10.100.198.211 ip=10.100.198.211
+k8s-e2   ansible_host=10.100.198.212 ip=10.100.198.212
+k8s-e3   ansible_host=10.100.198.213 ip=10.100.198.213
+k8s-n1   ansible_host=10.100.198.221 ip=10.100.198.221
+k8s-n2   ansible_host=10.100.198.222 ip=10.100.198.222
+k8s-n3   ansible_host=10.100.198.223 ip=10.100.198.223
 
 [kube-master]
-node1
-node2
+k8s-m1
+k8s-m2
+k8s-m3
 
 [kube-node]
-node1
-node2
-node3
-node4
-node5
-node6
-node7
-node8
-node9
+k8s-n1
+k8s-n2
+k8s-n3
 
 [etcd]
-node1
-node2
-node3
+k8s-e1
+k8s-e2
+k8s-e3
 
 [k8s-cluster:children]
 kube-node
@@ -178,9 +173,9 @@ kube-master
 [calico-rr]
 
 [vault]
-node1
-node2
-node3
+k8s-m1
+k8s-m2
+k8s-m3
 
 
 ```
